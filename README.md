@@ -1,9 +1,9 @@
 # `app-template`
 
-> Quickly set up a [`probe-run`] + [`defmt`] + [`flip-link`] embedded project
+> Quickly set up a [`probe-rs`] + [`defmt`] + [`flip-link`] embedded project
 > running on the [`RTIC`] scheduler
 
-[`probe-run`]: https://crates.io/crates/probe-run
+[`probe-rs`]: https://crates.io/crates/probe-rs
 [`defmt`]: https://github.com/knurling-rs/defmt
 [`flip-link`]: https://github.com/knurling-rs/flip-link
 [`RTIC`]: https://rtic.rs/
@@ -18,11 +18,10 @@ Based on https://github.com/knurling-rs/app-template
 $ cargo install flip-link
 ```
 
-#### 2. `probe-run`:
+#### 2. `probe-rs`:
 
 ``` console
-$ # make sure to install v0.2.0 or later
-$ cargo install probe-run
+$ cargo install probe-rs --features cli
 ```
 
 ## Setup
@@ -37,9 +36,9 @@ If you look into your new `test-app` folder, you'll find that there are a few `T
 
 Let's walk through them together now.
 
-#### 2. Set `probe-run` chip
+#### 2. Set `probe-rs` chip
 
-Pick a chip from `probe-run --list-chips` and enter it into `.cargo/config.toml`.
+Pick a chip from `probe-rs chip list` and enter it into `.cargo/config.toml`.
 
 If, for example, you have a nRF52840 Development Kit from one of [our workshops], replace `$CHIP` with `nRF52840_xxAA`.
 
@@ -48,8 +47,8 @@ If, for example, you have a nRF52840 Development Kit from one of [our workshops]
 ```diff
 # .cargo/config.toml
  [target.'cfg(all(target_arch = "arm", target_os = "none"))']
--runner = "probe-run --chip $CHIP"
-+runner = "probe-run --chip nRF52840_xxAA"
+-runner = "probe-rs run --chip $CHIP"
++runner = "probe-rs run --chip nRF52840_xxAA"
 ```
 
 #### 3. Adjust the compilation target
