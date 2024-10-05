@@ -20,9 +20,7 @@ $ cargo install flip-link
 
 #### 2. `probe-rs`:
 
-``` console
-$ cargo install probe-rs --features cli
-```
+[Installation instructions on probe.rs](https://probe.rs/docs/getting-started/installation/)
 
 ## Setup
 
