@@ -1,6 +1,6 @@
 #![no_main]
 #![no_std]
-
+#[allow(unused_imports)]
 use core::sync::atomic::{AtomicUsize, Ordering};
 use defmt_brtt as _; // global logger
 

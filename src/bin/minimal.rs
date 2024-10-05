@@ -1,5 +1,6 @@
 #![no_main]
 #![no_std]
+#[allow(unused_imports)]
 
 use test_app as _; // global logger + panicking-behavior + memory layout
 
